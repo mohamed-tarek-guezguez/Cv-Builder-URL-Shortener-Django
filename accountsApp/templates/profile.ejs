@@ -1,0 +1,99 @@
+{% extends "main.ejs" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="mt-3 shadow-lg p-3 mb-5 bg-white rounded">
+        <h4>Picture</h4>
+        <div class="border-top pt-3">
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" style="width: 120px; height: 120px;">
+        </div>
+    </div>
+
+    <div class="mt-3 shadow-lg p-3 mb-5 bg-white rounded">
+        <h4>Name</h4>
+        <div class="border-top pt-3">
+            <p class="text-secondary">{{ user.profile.name }}</p>
+        </div>
+    </div>
+
+    <div class="mt-3 shadow-lg p-3 mb-5 bg-white rounded">
+        <h4>Email</h4>
+        <div class="border-top pt-3">
+            <p class="text-secondary">{{ user.email }}</p>
+        </div>
+    </div>
+
+    <div class="mt-3 shadow-lg p-3 mb-5 bg-white rounded">
+        <h4>About</h4>
+        <div class="border-top pt-3">
+            {% if user.profile.about %}
+                <p class="text-secondary">{{ user.profile.about|safe }}</p>
+            {% else %}
+                <p class="text-secondary">None</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="mt-3 shadow-lg p-3 mb-5 bg-white rounded">
+        <h4>Skills</h4>
+        <div class="border-top pt-3">
+            {% if user.profile.skills %}
+                <p class="text-secondary">{{ user.profile.skills|safe }}</p>
+            {% else %}
+                <p class="text-secondary">None</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="mt-3 shadow-lg p-3 mb-5 bg-white rounded">
+        <h4>Experience</h4>
+        <div class="border-top pt-3">
+            {% if user.profile.experience %}
+                <p class="text-secondary">{{ user.profile.experience|safe }}</p>
+            {% else %}
+                <p class="text-secondary">None</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="mt-3 shadow-lg p-3 mb-5 bg-white rounded">
+        <h4>Education</h4>
+        <div class="border-top pt-3">
+            {% if user.profile.education %}
+                <p class="text-secondary">{{ user.profile.education|safe }}</p>
+            {% else %}
+                <p class="text-secondary">None</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="mt-3 shadow-lg p-3 mb-5 bg-white rounded">
+        <h4>Services</h4>
+        <div class="border-top pt-3">
+            {% if user.profile.services %}
+                <p class="text-secondary">{{ user.profile.services|safe }}</p>
+            {% else %}
+                <p class="text-secondary">None</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="mt-3 shadow-lg p-3 mb-5 bg-white rounded">
+        <h4>Address</h4>
+        <div class="border-top pt-3">
+            <p class="text-secondary">{{ user.profile.address }}</p>
+        </div>
+    </div>
+
+    <div class="mt-3 shadow-lg p-3 mb-5 bg-white rounded">
+        <h4>Phone</h4>
+        <div class="border-top pt-3">
+            <p class="text-secondary">{{ user.profile.phone }}</p>
+        </div>
+    </div>
+    
+    <div class="col-md-12 text-center" style="margin-bottom: 80px;">
+        <a href="{% url 'settings' %}" class="btn btn-outline-info">Edit</a>
+    </div>
+       
+{% endblock content %}

@@ -1,0 +1,155 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+    <link href="{% static 'cv2/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'cv2/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'cv2/css/style.css' %}" rel="stylesheet">
+
+    <style>
+        .header .profile-img {
+            position            : absolute;
+            top                 : 0;
+            left                : 0;
+            z-index             : -1;
+            width               : 100%;
+            height              : 100%;
+            /* background-image    : url(../img/img-profile.jpg); */
+            background-image    : url("{{detail.profile.image.url}}");
+            background-size     : cover;
+            background-position : center top;
+        }
+    </style>
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar">
+
+    <div id="main-wrapper">
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+
+        <div class="columns-block">
+            <div class="left-col-block blocks">
+                <header class="header">
+                    <div class="content text-center">
+                        <h1>{{ detail.profile.name }}</h1>
+                        <p class="lead">{{ detail.profile.tag }}</p>            
+                    </div>
+                    <div class="profile-img"></div>
+                </header>
+            </div>
+
+
+            <div class="right-col-block blocks">
+                <section class="intro section-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title">
+                                    <h2>About us</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <p>{{ detail.profile.about|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="expertise-wrapper section-wrapper gray-bg">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title">
+                                    <h2>SKILLS</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <p>{{ detail.profile.skills|safe }}</p>  
+                        </div>
+                    </div>
+                </section>
+
+                <section class="intro section-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title">
+                                    <h2>EXPERIENCE</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <p>{{ detail.profile.experience|safe }}</p>  
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="expertise-wrapper section-wrapper gray-bg">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title">
+                                    <h2>EDUCATION</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <p>{{ detail.profile.education|safe }}</p>  
+                        </div>
+                    </div>
+                </section>
+
+                <section class="intro section-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title">
+                                    <h2>SERVICES</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <p>{{ detail.profile.services|safe }}</p>  
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="expertise-wrapper section-wrapper gray-bg">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title">
+                                    <h2>CONTACT</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            email : <a href="mailto: {{ detail.email }}"> {{ detail.email }}</a><br>
+                            phone : <a href="tel:{{ detail.profile.phone }}"> {{ detail.profile.phone }}</a><br>
+                            address : {{ detail.profile.address }}
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- jquery -->
+    <script src="{% static 'cv2/js/jquery-2.1.4.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'cv2/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'cv2/js/scripts.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'cv1/favicon.ico' %}">  
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	<script defer src="{% static 'cv1/assets/fontawesome/js/all.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'cv1/assets/plugins/bootstrap/css/bootstrap.min.css' %}">   
+    <link id="theme-style" rel="stylesheet" href="{% static 'cv1/assets/css/orbit-1.css' %}">
+</head> 
+
+<body>
+
+    <div class="wrapper mb-4">
+        <div class="sidebar-wrapper">
+            <div class="profile-container">
+                <img class="profile" src="{{detail.profile.image.url}}" alt="" style="width: 150px; height: 150px; border-radius: 50%;" />
+                <h1 class="name">{{ detail.profile.name }}</h1>
+                <h3 class="tagline">{{ detail.profile.tag }}</h3>
+            </div>
+            
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+                    <li class="email"><i class="fas fa-envelope"></i><a href="mailto: {{ detail.email }}">{{ detail.email }}</a></li>
+                    <li class="phone"><i class="fas fa-phone"></i><a href="tel:{{ detail.profile.phone }}">{{ detail.profile.phone }}</a></li>
+                    <li class="adress"><i class="fa fa-map-marker"></i><a href="#">{{ detail.profile.address }}</a></li>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <div class="main-wrapper">
+            
+            <section class="section summary-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>About us</h2>
+                <div class="summary">
+                    <p>{{ detail.profile.about|safe }}</p>
+                </div>
+            </section>
+            
+            <section class="section experiences-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-globe"></i></span>Skills</h2>
+                
+                <div class="item">
+                    <div class="details">
+                        <p>{{ detail.profile.skills|safe }}</p>  
+                    </div>
+                </div>
+                            
+            </section>
+
+            <section class="section experiences-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Experience</h2>
+                
+                <div class="item">
+                    <div class="details">
+                        <p>{{ detail.profile.experience|safe }}</p>  
+                    </div>
+                </div>
+                            
+            </section>
+
+            <section class="section experiences-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-book"></i></span>Education</h2>
+                
+                <div class="item">
+                    <div class="details">
+                        <p>{{ detail.profile.education|safe }}</p>  
+                    </div>
+                </div>
+                            
+            </section>
+
+            <section class="section experiences-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fab fa-servicestack"></i></span>Services</h2>
+                
+                <div class="item">
+                    <div class="details">
+                        <p>{{ detail.profile.services|safe }}</p>  
+                    </div>
+                </div>
+                            
+            </section>
+            
+        </div>
+    </div>
+        
+</body>
+</html> 
+
